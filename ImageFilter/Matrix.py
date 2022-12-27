@@ -3,7 +3,7 @@ from dataclasses import dataclass, field
 
 @dataclass
 class Matrix(object):
-    matrix: list[list[object]]
+    matrix: list[list[object | int]]
     size = [0, 0]
 
     def __post_init__(self):
