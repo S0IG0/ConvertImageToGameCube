@@ -1,9 +1,9 @@
-from map_reduce import map_reduce
-from Matrix import Matrix
+from ImageFilter.map_reduce import map_reduce
+from ImageFilter.Matrix import Matrix
 from PIL import Image
 
 
-def generate_matrix(image: Image.Image) -> Matrix:
+def generate_matrix(image: Image.Image, max_out: int | float = 5) -> Matrix:
     matrix = []
 
     width, height = image.size
@@ -13,7 +13,7 @@ def generate_matrix(image: Image.Image) -> Matrix:
         matrix.append([])
         for j in range(height):
             r, g, b = pixels[i, j]
-            matrix[i].append(int(map_reduce(((r + g + b) // 3), 0, 255, 0, 6)))
+            matrix[i].append(int(map_reduce(((r + g + b) // 3), 0, 255, 0, max_out)))
 
     return Matrix(matrix)
 
