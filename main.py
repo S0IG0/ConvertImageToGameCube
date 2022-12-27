@@ -19,6 +19,7 @@ def main():
             image.paste(sides[digit], (index_line, index_digit))
 
     image.save(r'out/out.png')
+    image.show()
 
 
 if __name__ == '__main__':
